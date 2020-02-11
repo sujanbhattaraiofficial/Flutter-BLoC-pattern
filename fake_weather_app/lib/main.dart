@@ -112,7 +112,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   child: CircularProgressIndicator(),
                 );
               } else if (state is SearchedState) {
-                return ShowWeatherData(state.weatherData);
+                return ShowWeatherData(state.weatherData, controller.text);
               }
             }),
       ),
@@ -122,15 +122,16 @@ class _WeatherPageState extends State<WeatherPage> {
 
 class ShowWeatherData extends StatelessWidget {
   final WeatherData weatherData;
-  const ShowWeatherData(this.weatherData);
+  final String cityName;
+  const ShowWeatherData(this.weatherData, this.cityName);
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(weatherData.getTemp().toStringAsFixed(1) + "°C"),
-          Text(weatherData.city),
+          Text(weatherData.temp.toString() + "°C"),
+          Text(cityName),
           SizedBox(
             height: 20.0,
           ),

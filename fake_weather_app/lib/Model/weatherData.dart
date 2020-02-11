@@ -1,16 +1,16 @@
 import 'package:equatable/equatable.dart';
 
 class WeatherData extends Equatable {
-  final String cityName;
   final double temprature;
 
-  WeatherData({this.cityName, this.temprature});
+  WeatherData({this.temprature});
   @override
   // TODO: implement props
-  List<Object> get props => [cityName, temprature];
+  List<Object> get props => [temprature];
 
-  double getTemp() {
-    return temprature;
+  double get temp => temprature;
+
+  factory WeatherData.fromJson(Map<String, dynamic> json) {
+    return WeatherData(temprature: json["temp"]);
   }
-  String get city => cityName;
 }
