@@ -28,6 +28,7 @@ class WeatherManageBloc extends Bloc<WeatherEvent, WeatherState> {
   }
 
   Future<WeatherData> _fetchWeatherData(String cityName) async {
+    // use AIP if you want to.
     // final result = await http.Client().get(
     //     "http://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=d885aa1d783fd13a55050afeef620fcb");
     // if (result.statusCode != 200) {
